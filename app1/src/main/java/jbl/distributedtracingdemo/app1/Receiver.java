@@ -1,4 +1,4 @@
-package jbl.distributedtracingdemo;
+package jbl.distributedtracingdemo.app1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
