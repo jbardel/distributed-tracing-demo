@@ -19,6 +19,7 @@
         <module>app1</module>
         <module>app2</module>
         <module>eureka-server</module>
+        <module>common</module>
     </modules>
 
     <properties>
