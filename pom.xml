@@ -41,5 +41,37 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.34.1</version>
+                    <executions>
+                        <execution>
+                            <id>start</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <images>
+                            <image>
+                                <name>jbl/${artifactId}:${project.version}</name>
+                                <build>
+                                    <dockerFile>${project.basedir}/../Dockerfile</dockerFile>
+                                    <contextDir>${project.basedir}</contextDir>
+                                </build>
+                            </image>
+                        </images>
+
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
