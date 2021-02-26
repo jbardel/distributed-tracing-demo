@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  
+  eureka:
+    image: jbl/eureka-server:1.0-SNAPSHOT
+    ports:
+      - 8761:8761
+  
+  app1:
+    image: jbl/app1:1.0-SNAPSHOT
+    ports:
+      - 8080:8080
+    environment:
+      - EUREKA_URI='http://eureka:8761/eureka/'
+    depends_on:
+      - eureka
+    
+  app2: 
+    image: jbl/app2:1.0-SNAPSHOT
+    environment:
+      - EUREKA_URI='http://eureka:8761/eureka/'
+    depends_on:
+      - eureka
+    
+    
